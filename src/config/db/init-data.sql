@@ -1,0 +1,1 @@
+insert into User values('3168b017ef684db48a82b6f161b77efc','admin','4QrcOUm6Wau+VuBX8g+IPg==');

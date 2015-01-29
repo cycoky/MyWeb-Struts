@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="p2" extends="struts-default" namespace="/admin">
+		<global-results>
+			<!-- p2包中的所有action都可以使用该全局结果 -->
+			<result name="error" type="redirect">/error.jsp</result>
+		</global-results>
+		<action name="welcome" class="com.coky.user.action.WelcomeAction" method="welcome">
+			<result name="success">/welcome.html</result>
+		</action>
+		
+		<action name="query" class="com.coky.user.action.QueryAdminAction">
+			<result name="success" type="dispatcher">/view/user/listAdmin.jsp</result>
+		</action>
+		<action name="del" class="com.coky.user.action.DeleteAction">
+			<result name="success" type="redirect">query.action</result>
+		</action>
+		<action name="addadmin" class="com.coky.user.action.AddAction">
+			<result name="success" type="redirect">query.action</result>
+		</action>
+		<action name="editPwd" class="com.coky.user.action.EditPwdActoin">
+			<result name="success" type="redirect">query.action</result>
+		</action>
+	</package>
+</struts>    

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="p3" extends="struts-default">
+		<default-action-ref name="defaultAction" />
+		<!-- 1.普通方式，一个操作对应一个Action,Action数量越来越多不利于维护 -->
+<!-- 		<action name="toAdd" class="com.coky.calc.action.AddAction">
+			<result name="success" type="dispatcher">/calculator.jsp</result>
+		</action>
+		<action name="toSub" class="com.coky.calc.action.SubAction">
+			<result name="success" type="dispatcher">/calculator.jsp</result>
+		</action>
+		<action name="toMul" class="com.coky.calc.action.MulAction">
+			<result name="success" type="dispatcher">/calculator.jsp</result>
+		</action>
+		<action name="toDiv" class="com.coky.calc.action.DivAction">
+			<result name="success" type="dispatcher">/calculator.jsp</result>
+		</action> -->
+	
+		<!-- 2.DMI方式调用,有安全隐患 -->
+<!-- 		<action name="toArithmetic" class="com.coky.calc.action.ArithmeticAction">
+			<result name="success" type="dispatcher">/calculator.jsp</result>
+		</action> -->
+		
+		<!-- 3.method属性配置方式，解决DMI方式安全隐患,action数量越来越多不利于维护 -->
+<!-- 		<action name="toAdd" class="com.coky.calc.action.ArithmeticAction" method="add">
+			<result name="success" type="dispatcher">/calculator.jsp</result>
+		</action>
+		<action name="toSub" class="com.coky.calc.action.ArithmeticAction" method="sub">
+			<result name="success" type="dispatcher">/calculator.jsp</result>
+		</action>
+		<action name="toMul" class="com.coky.calc.action.ArithmeticAction" method="mul">
+			<result name="success" type="dispatcher">/calculator.jsp</result>
+		</action>
+		<action name="toDiv" class="com.coky.calc.action.ArithmeticAction" method="div">
+			<result name="success" type="dispatcher">/calculator.jsp</result>
+		</action> -->
+		
+		<!-- 4.通配符方式 -->
+		<action name="to*" class="com.coky.calc.action.ArithmeticAction" method="{1}">
+			<result name="success" type="dispatcher">/view/calculator/calculator.jsp</result>
+		</action>
+	
+		<action name="defaultAction">
+			<result>/error.jsp</result>
+		</action>
+	
+		
+	</package>
+</struts>    
